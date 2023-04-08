@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Gráficos</title>
+</head>
+<body style="display: flex">
+    <div style="position: relative; height: 200vh; width: 200vw;">
+        <canvas id="tempUmid"></canvas>
+    </div>
+    <div style="position: relative; height: 200vh; width: 200vw;">
+        <canvas id="tempUmid_Media"></canvas>
+    </div>
+</body>
+<script>
+    const labels = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00',
+    ];
+
+    const labels2 = [
+        'Janeiro',
+        'Fevereiro',
+        'Março',
+        'Abril',
+        'Maio',
+        'Junho',
+    ];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Temperatura',
+            backgroundColor: 'rgb(100,149,237)',
+            borderColor: 'rgb(100,149,237)',
+            data:[30, 29, 28, 25, 22, 23],
+        },
+        {
+            label: 'Umidade',
+            backgroundColor: 'rgb(72,61,139)',
+            borderColor: 'rgb(72,61,139)',
+            data:[80, 82, 80, 85, 80, 83],
+        }]
+    };
+
+    const data2 = {
+        labels: labels2,
+        datasets: [{
+            label: 'Temperatura Média',
+            backgroundColor: 'rgb(219,112,147)',
+            borderColor: 'rgb(219,112,147)',
+            data:[22, 24, 27, 23, 20, 18],
+        },
+        {
+            label: 'Umidade Média',
+            backgroundColor: 'rgb(165,42,42)',
+            borderColor: 'rgb(165,42,42)',
+            data:[90, 89, 93, 87, 88, 82],
+        }]
+    };
+
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {}
+    };
+
+    const config2 = {
+        type: 'bar',
+        data: data2,
+        options: {}
+    };
+</script>
+
+<script>
+    const tempUmid = new Chart(
+        document.getElementById('tempUmid'),
+        config
+    );
+
+    const tempUmid_Media = new Chart(
+        document.getElementById('tempUmid_Media'),
+        config2
+    );
+</script>
+
+
+
+</html>
